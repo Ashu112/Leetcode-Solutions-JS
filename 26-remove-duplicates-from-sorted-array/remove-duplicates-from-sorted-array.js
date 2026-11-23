@@ -3,13 +3,16 @@
  * @return {number}
  */
 var removeDuplicates = function(nums) {
-    let k = 0 ; 
+    // Two Pointer approach
+    // one to access element and one for position
+    
+    let k = 1 ; 
     let n = nums.length; 
-    for (let i = 0 ; i < n; i++){
-        if(nums[i] !== nums[i+1]){
+    for (let i = 1 ; i < n; i++){
+        if(nums[i] !== nums[i-1]){
             nums[k] = nums[i];
             k++
         }
     }
-    return k ;
+    return n === 0 ? 0 : k ;
 };
